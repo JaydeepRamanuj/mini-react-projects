@@ -10,6 +10,7 @@ import ScrollIndicator from './scroll-indicator/ScrollIndicator';
 import Slider from './slider/Slider';
 import Accordion from './accordion/Accordion';
 import GithubProfile from './github-profile-card/GithubProfile';
+import TicTacToe from './TicTacToe/TicTacToe';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       {/* <CustomModal /> */}
       {/* <RandomColorGenerator /> */}
       {/* <Accordion /> */}
-      <GithubProfile />
+      {/* <GithubProfile /> */}
+      <TicTacToe />
     </>
   );
 }
