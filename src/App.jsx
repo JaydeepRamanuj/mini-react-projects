@@ -11,6 +11,7 @@ import Slider from "./slider/Slider";
 import Accordion from "./accordion/Accordion";
 import GithubProfile from "./github-profile-card/GithubProfile";
 import TicTacToe from "./TicTacToe/TicTacToe";
+import Test from "./Test";
 
 function App() {
   return (
@@ -26,7 +27,8 @@ function App() {
       {/* <RandomColorGenerator /> */}
       {/* <Accordion /> */}
       {/* <GithubProfile /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+      <Test />
     </>
   );
 }

@@ -6,4 +6,8 @@
   .btn {
     @apply px-3 py-1 text-center rounded-md bg-blue-600 active:bg-blue-600 active:scale-[0.97] text-white transition-all duration-100;
   }
+
+  .tic-tac-toe-cell {
+    @apply size-24 border-2 flex justify-center items-center transition-all duration-100 active:scale-90 active:shadow-lg text-3xl font-bold;
+  }
 }
