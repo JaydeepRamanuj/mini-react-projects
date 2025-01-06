@@ -5,9 +5,12 @@ import CustomTabs from "./custom-tabs/CustomTabs";
 import LightDarkMode from "./light-dark-mode/light-dark-mode";
 import LoadMore from "./load-more-btn/LoadMore";
 import QRCodeGenerator from "./qr-code-generator/QRCodeGenerator";
+import RandomColorGenerator from "./random-color-generator/RandomColorGenerator";
 import ScrollIndicator from "./scroll-indicator/ScrollIndicator";
 import Slider from "./slider/Slider";
-import SearchAutocomplete from "./searchAutocomplete/SearchAutocomplete";
+import Accordion from "./accordion/Accordion";
+import GithubProfile from "./github-profile-card/GithubProfile";
+import TicTacToe from "./TicTacToe/TicTacToe";
 
 function App() {
   return (
@@ -20,7 +23,10 @@ function App() {
       {/* <ScrollIndicator /> */}
       {/* <CustomTabs /> */}
       {/* <CustomModal /> */}
-      <SearchAutocomplete />
+      {/* <RandomColorGenerator /> */}
+      {/* <Accordion /> */}
+      {/* <GithubProfile /> */}
+      <TicTacToe />
     </>
   );
 }
