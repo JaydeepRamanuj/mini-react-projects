@@ -12,6 +12,7 @@ import Accordion from "./accordion/Accordion";
 import GithubProfile from "./github-profile-card/GithubProfile";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import Test from "./Test";
+import UserProfile from "./userProfileUsingFirebase/UserProfile";
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
       {/* <Accordion /> */}
       {/* <GithubProfile /> */}
       {/* <TicTacToe /> */}
-      <Test />
+      {/* <Test /> */}
+      <UserProfile />
     </>
   );
 }
