@@ -1,12 +1,28 @@
-import { useEffect, useState } from "react";
-import { app } from "./firebaseService";
-import { userProFileModal } from "./utils";
+import { useEffect, useState } from 'react';
+import { app, db, storage, storeUserData } from './firebaseService';
+
+import { userProFileModal } from './utils';
 
 function UserProfile() {
   const [userData, setUserData] = useState(userProFileModal);
 
   useEffect(() => {
-    console.log(app);
+    // console.log(app);
+    // console.log(db);
+    // console.log(storage);
+
+    storeUserData(
+      '123',
+      'abc',
+      'abc@example.com',
+      'somePAss',
+      'tomato',
+      'rajkot',
+      10,
+      '7-1-2025',
+      'This is some description',
+      'https://images.pexels.com/photos/17937699/pexels-photo-17937699/free-photo-of-cloudy-sky-over-small-mountain.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+    );
   }, []);
 
   function handleChange(e) {
