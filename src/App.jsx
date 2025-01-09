@@ -13,7 +13,6 @@ import GithubProfile from './github-profile-card/GithubProfile';
 import TicTacToe from './TicTacToe/TicTacToe';
 import Test from './Test';
 import UserProfile from './userProfileUsingFirebase/UserProfile';
-import FeaturesContainer from './featureFlags/FeaturesContainer';
 
 function App() {
   return (
@@ -31,8 +30,7 @@ function App() {
       {/* <GithubProfile /> */}
       {/* <TicTacToe /> */}
       {/* <Test /> */}
-      {/* <UserProfile /> */}
-      <FeaturesContainer />
+      <UserProfile />
     </>
   );
 }
