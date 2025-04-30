@@ -20,10 +20,10 @@ Here's a list of all the features included in this collection:
 | Feature                | Description                                   |
 | ---------------------- | --------------------------------------------- |
 | Accordion              | Expand/collapse panels with smooth animations |
-| Custom Modal           | Reusable modal with portal support            |
+| Custom Modal           | Reusable modal component                      |
 | Custom Tabs            | Tabbed UI for content switching               |
 | Custom Hooks           | Utility hooks for reusability                 |
-| Feature Flags          | Toggle features based on conditions or roles  |
+| Feature Flags          | Toggle features based on conditions           |
 | GitHub Profile Card    | Fetch and display GitHub user data            |
 | Light/Dark Mode        | Theme toggle with localStorage persistence    |
 | Load More Button       | Incremental content loader                    |
@@ -31,7 +31,7 @@ Here's a list of all the features included in this collection:
 | Random Color Generator | Dynamically change background or elements     |
 | Tic Tac Toe            | Classic game with win/tie logic               |
 | Scroll Indicator       | Progress bar indicating page scroll           |
-| Search Autocomplete    | Suggestive search bar with keyboard support   |
+| Search Autocomplete    | Suggestive search bar                         |
 | Slider                 | Image/content slider with navigation controls |
 | User Rating Component  | Interactive star rating input                 |
 | Weather Card           | Displays current weather using external API   |
