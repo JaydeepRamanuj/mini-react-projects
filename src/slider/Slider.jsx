@@ -1,14 +1,14 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState } from "react";
+import { useEffect } from "react";
 
-import Slide from './Slide';
+import Slide from "./Slide";
 
 function Slider() {
   const [images, setImages] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLoading, setIsLoading] = useState(1);
   useEffect(() => {
-    fetch('https://picsum.photos/v2/list?page=2&limit=10')
+    fetch("https://picsum.photos/v2/list?page=2&limit=10&h=500&w=700")
       .then((response) => response.json())
       .then((result) => {
         setImages(result);
