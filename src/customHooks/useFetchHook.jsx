@@ -12,12 +12,14 @@ function useFetch(url) {
     setIsLoading(false);
   }
 
+  const refetch = () => getData();
+
   useEffect(() => {
     getData();
   }, [url]);
 
   //   return [data];
-  return { data, isLoading };
+  return { data, isLoading, refetch };
 }
 
 export default useFetch;

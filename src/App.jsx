@@ -11,26 +11,33 @@ import Slider from "./slider/Slider";
 import Accordion from "./accordion/Accordion";
 import GithubProfile from "./github-profile-card/GithubProfile";
 import TicTacToe from "./TicTacToe/TicTacToe";
-import Test from "./Test";
-import UserProfile from "./userProfileUsingFirebase/UserProfile";
+import CustomHookDemo from "./customHooks/CustomHookDemo";
 
 function App() {
+  const features = [
+    { title: "RatingComponent", element: <RatingComponent /> },
+    { title: "Slider", element: <Slider /> },
+    { title: "LoadMore", element: <LoadMore /> },
+    { title: "QRCodeGenerator", element: <QRCodeGenerator /> },
+    { title: "LightDarkMode", element: <LightDarkMode /> },
+    { title: "ScrollIndicator, look at the top", element: <ScrollIndicator /> },
+    { title: "CustomTabs", element: <CustomTabs /> },
+    { title: "CustomModal", element: <CustomModal /> },
+    { title: "RandomColorGenerator", element: <RandomColorGenerator /> },
+    { title: "Accordion", element: <Accordion /> },
+    { title: "GithubProfile", element: <GithubProfile /> },
+    { title: "TicTacToe", element: <TicTacToe /> },
+    { title: "CustomHookDemo", element: <CustomHookDemo /> },
+    // <UserProfile />,
+  ];
   return (
     <>
-      <RatingComponent />
-      {/* <Slider /> */}
-      {/* <LoadMore /> */}
-      {/* <QRCodeGenerator /> */}
-      {/* <LightDarkMode /> */}
-      {/* <ScrollIndicator /> */}
-      {/* <CustomTabs /> */}
-      {/* <CustomModal /> */}
-      {/* <RandomColorGenerator /> */}
-      {/* <Accordion /> */}
-      {/* <GithubProfile /> */}
-      {/* <TicTacToe /> */}
-      {/* <Test /> */}
-      {/* <UserProfile /> */}
+      {features.map((feature, index) => (
+        <div className="features-container" key={index}>
+          <h1 className="features-container-heading">{feature.title}</h1>
+          {feature.element}
+        </div>
+      ))}
     </>
   );
 }

@@ -10,4 +10,12 @@
   .tic-tac-toe-cell {
     @apply size-24 border-2 flex justify-center items-center transition-all duration-100 active:scale-90 active:shadow-lg text-3xl font-bold;
   }
+
+  .features-container {
+    @apply m-4 bg-slate-500/10 p-6 rounded-lg flex justify-center flex-col items-center
+  }
+
+  .features-container-heading {
+    @apply text-xl font-bold text-slate-700 text-start w-full mb-6
+  }
 }

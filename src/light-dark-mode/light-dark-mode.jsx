@@ -1,20 +1,19 @@
-import { useState } from 'react';
-import useLocalStorageHook from '../hooks/useLocalStorageHook';
+import useLocalStorageHook from "../hooks/useLocalStorageHook";
 function LightDarkMode() {
-  //   const [mode, setMode] = useState('light');
-  const [theme, setTheme] = useLocalStorageHook('light');
+  const [theme, setTheme] = useLocalStorageHook("light");
 
   const handleClick = () => {
-    if (theme == 'light') {
-      setTheme('dark');
+    if (theme == "light") {
+      setTheme("dark");
     } else {
-      setTheme('light');
+      setTheme("light");
     }
   };
   return (
     <div
-      className="mt-10 mx-auto w-fit p-10 rounded-xl"
-      style={{ backgroundColor: theme }}
+      className={`mt-10 mx-auto w-fit p-10 rounded-xl ${
+        theme == "light" ? "bg-gray-300" : "bg-slate-800 text-white"
+      }`}
     >
       <h1 className="text-3xl" style={{ color: theme }}>
         Namshte world

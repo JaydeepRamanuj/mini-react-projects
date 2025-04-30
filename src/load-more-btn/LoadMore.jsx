@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import ProductCard from './Product-card';
+import { useEffect, useState } from "react";
+import ProductCard from "./Product-card";
 
 function LoadMore() {
   const [productList, setProductList] = useState([]);
@@ -49,7 +49,8 @@ function LoadMore() {
 
   return (
     <>
-      <div className="product-list grid grid-cols-4 gap-4 justify-center">
+      {/* I didn't find any way to use 'repeat(auto-fit,_minmax(250px,_1fr))', so I have to write it manually :( */}
+      <div className="product-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 justify-center">
         {productList.map((product, index) => (
           <ProductCard
             key={index}

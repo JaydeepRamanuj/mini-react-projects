@@ -55,16 +55,16 @@ function Slider() {
         ))}
       </div>
       <div
-        className="left absolute top-1/2 left-1 -translate-y-1/2 active:scale-95"
+        className="text-3xl left absolute top-1/2 left-1 -translate-y-1/2 active:scale-95 size-[40px] bg-slate-600 rounded-full flex justify-center items-center"
         onClick={slideLeft}
       >
-        <i className="bi bi-arrow-left-circle-fill text-white/60"></i>
+        <i className="bi bi-arrow-left-circle-fill text-white/60 hover:text-white/80 cursor-pointer flex justify-center items-center"></i>
       </div>
       <div
-        className="right left absolute top-1/2 right-1 -translate-y-1/2 active:scale-95"
+        className="text-3xl right left absolute top-1/2 right-1 -translate-y-1/2 active:scale-95 size-[40px] bg-slate-600 rounded-full flex justify-center items-center"
         onClick={slideRight}
       >
-        <i className="bi bi-arrow-right-circle-fill text-white/60"></i>
+        <i className="bi bi-arrow-right-circle-fill text-white/60 hover:text-white/80 cursor-pointer flex justify-center items-center"></i>
       </div>
     </div>
   );
