@@ -12,24 +12,48 @@ import Accordion from "./accordion/Accordion";
 import GithubProfile from "./github-profile-card/GithubProfile";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import CustomHookDemo from "./customHooks/CustomHookDemo";
+import OTPInput from "./otp/OTPInput";
+import DNDNotes from "./dnd-notes/DNDNotes";
+import ToolProvider, { ToolContext } from "./context/ToolProvider";
+import Modal from "./custom-modal/Modal";
+import { useContext } from "react";
 
 function App() {
+  const { toolVal } = useContext(ToolContext);
+  // console.log("toolVal", toolVal);
+
   const features = [
-    { title: "RatingComponent", element: <RatingComponent /> },
-    { title: "Slider", element: <Slider /> },
+    {
+      title: "OTP Input",
+      element: (
+        <OTPInput
+          otp={"abc123"}
+          isCharactersAllowed
+          onSuccess={(val) => {
+            alert(val);
+          }}
+          onError={(val) => console.log(val)}
+        />
+      ),
+    },
+    { title: "Drag and Drop", element: <DNDNotes /> },
     { title: "LoadMore", element: <LoadMore /> },
     { title: "QRCodeGenerator", element: <QRCodeGenerator /> },
-    { title: "LightDarkMode", element: <LightDarkMode /> },
-    { title: "ScrollIndicator, look at the top", element: <ScrollIndicator /> },
-    { title: "CustomTabs", element: <CustomTabs /> },
-    { title: "CustomModal", element: <CustomModal /> },
-    { title: "RandomColorGenerator", element: <RandomColorGenerator /> },
+    { title: "TicTacToe", element: <TicTacToe /> },
     { title: "Accordion", element: <Accordion /> },
     { title: "GithubProfile", element: <GithubProfile /> },
-    { title: "TicTacToe", element: <TicTacToe /> },
+    { title: "RandomColorGenerator", element: <RandomColorGenerator /> },
+    { title: "ScrollIndicator, look at the top", element: <ScrollIndicator /> },
+    { title: "RatingComponent", element: <RatingComponent /> },
+    { title: "Slider", element: <Slider /> },
+    { title: "LightDarkMode", element: <LightDarkMode /> },
+    { title: "CustomTabs", element: <CustomTabs /> },
+    { title: "CustomModal", element: <CustomModal /> },
     { title: "CustomHookDemo", element: <CustomHookDemo /> },
     // <UserProfile />,
   ];
+
+  // console.log("toolVal.showPopup", toolVal.showPopup);
   return (
     <>
       {features.map((feature, index) => (
@@ -38,6 +62,32 @@ function App() {
           {feature.element}
         </div>
       ))}
+      {/* 
+      <OTPInput length={4} />
+      <OTPInput length={8} isPassword />
+      <OTPInput
+        length={8}
+        isCharactersAllowed
+        onComplete={(val) => {
+          console.log(val);
+        }}
+        otp={12345678}
+        onError={(val) => {
+          alert(val);
+        }}
+      /> */}
+      {/* <OTPInput otp={123456} /> */}
+      {/* <OTPInput
+        otp={"abc123"}
+        isCharactersAllowed
+        onSuccess={(val) => {
+          alert(val);
+        }}
+        onError={(val) => console.log(val)}
+      /> */}
+
+      {/* <DNDNotes /> */}
+      {toolVal.showPopup && <Modal />}
     </>
   );
 }

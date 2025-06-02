@@ -1,32 +1,47 @@
-import { useEffect } from 'react';
-
-function Modal({ component, setModal }) {
+import { useContext, useEffect, useRef } from "react";
+import { IoIosCloseCircle } from "react-icons/io";
+import { ToolContext } from "../context/ToolProvider";
+function Modal() {
+  const ref = useRef();
+  const { toolVal, setToolVal } = useContext(ToolContext);
+  const handleCancel = () => {
+    console.log("Cancel button clicked");
+    setToolVal((prev) => ({ ...prev, showPopup: false }));
+  };
   useEffect(() => {
-    window.addEventListener('keydown', (e) => {
-      e.key === 'Escape' && setModal(false);
-    });
-  });
+    const handleClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setToolVal((prev) => ({ ...prev, showPopup: false }));
+      }
+    };
 
-  function handleClick(e) {
-    if (e.target.classList.contains('modal-wrapper')) {
-      setModal(false);
-    }
-  }
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setToolVal((prev) => ({ ...prev, showPopup: false }));
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   return (
-    <div
-      className="modal-wrapper h-screen w-screen bg-black/60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center z-10"
-      onClick={handleClick}
-    >
-      <div className=" p-1 rounded-md bg-slate-300/40 max-w-[500px] shadow-xl z-30 relative">
-        {component}
-        <i
-          className="bi bi-x-circle-fill text-gray-800 text-2xl absolute top-2 right-2 cursor-pointer z-50"
-          title="click to close"
-          onClick={() => {
-            setModal(false);
-          }}
-        ></i>
+    <div className="overlay fixed w-full h-full top-0 left-0 bg-black/60 backdrop-blur flex justify-center items-center z-999">
+      <div
+        ref={ref}
+        className="popup-content border-2 p-3 rounded-md bg-white/20 border-blue-300 shadow-3xl relative"
+      >
+        {toolVal.popupContent && toolVal.popupContent}
+        <span
+          className="size-8 flex justify-center items-center bg-black/60 rounded-full absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 z-15 cursor-pointer transition-all  hover:scale-[1.05] hover:bg-black/70"
+          onClick={handleCancel}
+        >
+          <IoIosCloseCircle />
+        </span>
       </div>
     </div>
   );
