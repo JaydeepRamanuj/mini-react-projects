@@ -80,74 +80,79 @@ function OTPInput({
   }
 
   return (
-    <div className="flex items-center">
-      <div className="flex gap-2">
-        {Array.from({ length: length }).map((_, i) => (
-          <input
-            key={i}
-            autoFocus={i == 0}
-            type={isPassword && !isPassVisible ? "password" : "text"}
-            inputMode={isCharactersAllowed || isPassword ? "text" : "numeric"}
-            pattern={
-              isCharactersAllowed || isPassword ? "[a-zA-Z0-9]" : "[0-9]"
-            }
-            style={style}
-            maxLength={1}
-            onFocus={(e) => {
-              e.target.setSelectionRange(
-                e.target.value.length,
-                e.target.value.length
-              );
-            }}
-            onKeyDown={(e) => {
-              const allowed =
-                isCharactersAllowed || isPassword ? /^[a-zA-Z0-9]$/ : /^[0-9]$/;
+    <div>
+      <div className="flex items-center">
+        <div className="flex gap-2">
+          {Array.from({ length: length }).map((_, i) => (
+            <input
+              key={i}
+              autoFocus={i == 0}
+              type={isPassword && !isPassVisible ? "password" : "text"}
+              inputMode={isCharactersAllowed || isPassword ? "text" : "numeric"}
+              pattern={
+                isCharactersAllowed || isPassword ? "[a-zA-Z0-9]" : "[0-9]"
+              }
+              style={style}
+              maxLength={1}
+              onFocus={(e) => {
+                e.target.setSelectionRange(
+                  e.target.value.length,
+                  e.target.value.length
+                );
+              }}
+              onKeyDown={(e) => {
+                const allowed =
+                  isCharactersAllowed || isPassword
+                    ? /^[a-zA-Z0-9]$/
+                    : /^[0-9]$/;
 
-              const currentValue = e.target.value;
-              if (e.key.length === 1 && !allowed.test(e.key)) {
-                e.preventDefault();
-              }
-              const blockedKeys = [
-                "ArrowLeft",
-                "ArrowRight",
-                "ArrowUp",
-                "ArrowDown",
-                "Home",
-                "End",
-              ];
-              if (blockedKeys.includes(e.key)) {
-                e.preventDefault();
-              }
-              if (e.key === "Backspace" && !currentValue && i > 0) {
-                inputsRef.current[i - 1].focus();
-              }
-              if (e.key === "Tab" && currentValue == 0) {
-                e.preventDefault();
-              }
-            }}
-            onMouseDown={(e) => {
-              e.preventDefault(); // stops default caret placement
-              // then force focus and caret at end
-              e.target.focus();
-              const len = e.target.value.length;
-              e.target.setSelectionRange(len, len);
-            }}
-            onPaste={(e) => handlePaste(e)}
-            className={otpStyle}
-            onChange={(e) => handleChange(e, i)}
-            ref={(el) => (inputsRef.current[i] = el)}
-          />
-        ))}
-      </div>
-
-      {isPassword && (
-        <div
-          className="ml-3 size-10 text-lg f-full flex justify-center items-center cursor-pointer bg-gray-400/20 rounded-full hover:bg-gray-400/30 active:scale-[.95]"
-          onClick={() => setPassVisible(!isPassVisible)}
-        >
-          {isPassVisible ? <IoEyeOffOutline /> : <IoEyeOutline />}
+                const currentValue = e.target.value;
+                if (e.key.length === 1 && !allowed.test(e.key)) {
+                  e.preventDefault();
+                }
+                const blockedKeys = [
+                  "ArrowLeft",
+                  "ArrowRight",
+                  "ArrowUp",
+                  "ArrowDown",
+                  "Home",
+                  "End",
+                ];
+                if (blockedKeys.includes(e.key)) {
+                  e.preventDefault();
+                }
+                if (e.key === "Backspace" && !currentValue && i > 0) {
+                  inputsRef.current[i - 1].focus();
+                }
+                if (e.key === "Tab" && currentValue == 0) {
+                  e.preventDefault();
+                }
+              }}
+              onMouseDown={(e) => {
+                e.preventDefault(); // stops default caret placement
+                // then force focus and caret at end
+                e.target.focus();
+                const len = e.target.value.length;
+                e.target.setSelectionRange(len, len);
+              }}
+              onPaste={(e) => handlePaste(e)}
+              className={otpStyle}
+              onChange={(e) => handleChange(e, i)}
+              ref={(el) => (inputsRef.current[i] = el)}
+            />
+          ))}
         </div>
-      )}
+
+        {isPassword && (
+          <div
+            className="ml-3 size-10 text-lg f-full flex justify-center items-center cursor-pointer bg-gray-400/20 rounded-full hover:bg-gray-400/30 active:scale-[.95]"
+            onClick={() => setPassVisible(!isPassVisible)}
+          >
+            {isPassVisible ? <IoEyeOffOutline /> : <IoEyeOutline />}
+          </div>
+        )}
+      </div>
+      <h1 className="mt-4 text-xl">OTP: abc123</h1>
     </div>
   );
 }
