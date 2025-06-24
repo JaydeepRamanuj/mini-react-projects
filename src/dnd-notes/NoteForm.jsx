@@ -6,6 +6,16 @@ function NoteForm() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
 
+  const generateUniqueId = (length = 6) => {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let result = "";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // if (title) setToolVal((prev) => ({ ...prev, title: title, desc: desc }));
@@ -15,7 +25,7 @@ function NoteForm() {
       showPopup: false,
       notes: [
         ...prev.notes,
-        { id: prev.notes.length + 1, title: title, desc: desc },
+        { id: generateUniqueId(), title: title, desc: desc },
       ],
     }));
     window.localStorage.setItem("dndNotes", JSON.stringify(toolVal.notes));

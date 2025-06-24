@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function AccordionItem({ title, content, setItem, isActive, accid }) {
   // const [isSelected, setIsSelected] = useState(isActive);
@@ -6,21 +6,23 @@ function AccordionItem({ title, content, setItem, isActive, accid }) {
 
   return (
     <li
-      className="p-1 rounded bg-slate-300 mt-4 cursor-pointer"
+      className="p-1 rounded  mt-4 cursor-pointer bg-blue-100 text-blue-800"
       onClick={() => setItem(accid)}
     >
-      <h2 className="p-1 pl-2 text-xl rounded font-semibold text-zinc-900 flex justify-between bg-slate-400">
+      <h2 className="p-1 pl-2 text-xl rounded font-semibold  flex justify-between text-left">
         {title}
         <span>
           <i
             className={`bi ${
-              isActive ? 'bi-caret-up-fill' : 'bi-caret-down-fill'
+              isActive ? "bi-caret-up-fill" : "bi-caret-down-fill"
             }`}
           ></i>
         </span>
       </h2>
       {isActive && (
-        <div className="p-1 text-zinc-600 text-ellipsis">{content}</div>
+        <div className="p-1 text-zinc-600 text-ellipsis text-left">
+          {content}
+        </div>
       )}
     </li>
   );
